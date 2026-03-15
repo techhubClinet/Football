@@ -1,0 +1,269 @@
+.action-rapide-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.action-rapide-modal {
+  background: #1E1E1E;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.action-rapide-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.action-rapide-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.action-rapide-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+.action-rapide-close {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.action-rapide-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.action-rapide-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.action-rapide-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.5rem 1.35rem;
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.action-rapide-card:hover {
+  background: #1f1f1f;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.action-rapide-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.action-rapide-card-icon-blue {
+  color: #3b82f6;
+}
+
+.action-rapide-card-icon-purple {
+  color: #8b5cf6;
+}
+
+.action-rapide-card-icon-green {
+  color: #22c55e;
+}
+
+.action-rapide-card-icon-orange {
+  color: #f97316;
+}
+
+.action-rapide-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.action-rapide-card-subtitle {
+  font-size: 0.82rem;
+  color: #a0a0a0;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* Note Mercato form */
+.action-rapide-modal-form {
+  max-width: 560px;
+}
+
+.action-rapide-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  margin-bottom: 1.25rem;
+  font-family: inherit;
+}
+
+.action-rapide-back:hover {
+  color: #fff;
+}
+
+.action-rapide-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.action-rapide-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.action-rapide-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.action-rapide-field input,
+.action-rapide-field select,
+.action-rapide-field textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.action-rapide-field input::placeholder,
+.action-rapide-field textarea::placeholder {
+  color: #6b7280;
+}
+
+.action-rapide-field select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.25rem;
+}
+
+.action-rapide-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.action-rapide-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.action-rapide-row-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.action-rapide-submit {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  background: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 0.5rem;
+}
+
+.action-rapide-submit:hover {
+  background: #2563eb;
+}
+
+.action-rapide-submit-purple {
+  background: #8b5cf6;
+}
+
+.action-rapide-submit-purple:hover {
+  background: #7c3aed;
+}
+
+.action-rapide-submit-green {
+  background: #22c55e;
+}
+
+.action-rapide-submit-green:hover {
+  background: #16a34a;
+}
+
+.action-rapide-submit-orange {
+  background: #ea580c;
+}
+
+.action-rapide-submit-orange:hover {
+  background: #c2410c;
+}
+
+.action-rapide-input-wrap {
+  position: relative;
+  display: block;
+}
+
+.action-rapide-input-wrap input {
+  padding-right: 2.5rem;
+}
+
+.action-rapide-input-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  pointer-events: none;
+}

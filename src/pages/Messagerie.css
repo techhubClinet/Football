@@ -1,0 +1,33 @@
+.messagerie-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+.messagerie-empty {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.messagerie-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.messagerie-empty-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.messagerie-empty-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}

@@ -1,0 +1,332 @@
+.player-profile-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+  background: var(--bg-page);
+}
+
+.player-profile-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.player-profile-back:hover {
+  color: #fff;
+}
+
+.player-profile-empty {
+  color: #9ca3af;
+  padding: 2rem;
+}
+
+/* Single dark gray card with rounded corners */
+.player-profile-card {
+  background: #252525;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.player-profile-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .player-profile-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left: avatar + name + attribute cards + club card */
+.player-profile-left {
+  display: flex;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.player-profile-avatar-wrap {
+  flex-shrink: 0;
+}
+
+.player-profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  background: #1a1a1a;
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  box-sizing: border-box;
+}
+
+.player-profile-details {
+  min-width: 0;
+  flex: 1;
+}
+
+.player-profile-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.player-profile-name-emoji {
+  font-size: 1.25rem;
+}
+
+/* 2x2 attribute cards */
+.player-profile-attr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.player-profile-attr-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+}
+
+.player-profile-attr-icon {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.player-profile-attr-flag {
+  font-size: 1rem;
+}
+
+.player-profile-attr-label {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.player-profile-attr-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Club card - full width below grid */
+.player-profile-club-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+}
+
+.player-profile-club-icon {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.player-profile-club-card span {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.player-profile-club-dot {
+  color: #4b5563;
+  font-weight: 700;
+  margin: 0 0.15rem;
+}
+
+/* Right: Market value panel - green border & background */
+.player-profile-value-panel {
+  width: 280px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  border-radius: 12px;
+  padding: 1.25rem;
+  flex-shrink: 0;
+}
+
+.player-profile-value-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.player-profile-value-icon {
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.player-profile-value-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.player-profile-value-amount-wrap {
+  margin-bottom: 0.35rem;
+}
+
+.player-profile-value-amount {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.player-profile-value-currency {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.player-profile-value-change {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: #4ade80;
+  margin-bottom: 0.75rem;
+}
+
+.player-profile-value-change svg {
+  flex-shrink: 0;
+}
+
+.player-profile-value-chart {
+  height: 44px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.player-profile-value-chart::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 2px;
+  background: linear-gradient(to right, transparent 0%, #4ade80 20%, #4ade80 80%, transparent 100%);
+  border-radius: 1px;
+  transform: rotate(-5deg);
+}
+
+.player-profile-contract-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.player-profile-contract-wrap svg {
+  color: #fff;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.player-profile-contract-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #e5e7eb;
+  margin-bottom: 0.15rem;
+}
+
+.player-profile-contract-date {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Bottom: row of 4 buttons spanning full width */
+.player-profile-actions-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 600px) {
+  .player-profile-actions-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.player-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  background: transparent;
+}
+
+.player-profile-actions-row .player-profile-btn:last-child {
+  border-right: none;
+}
+
+@media (max-width: 600px) {
+  .player-profile-btn:nth-child(2),
+  .player-profile-btn:nth-child(4) {
+    border-right: none;
+  }
+  .player-profile-btn:nth-child(1),
+  .player-profile-btn:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+.player-profile-btn-scout {
+  background: #3498DB;
+}
+
+.player-profile-btn-shortlist {
+  background: #9B59B6;
+}
+
+.player-profile-btn-alert {
+  background: #F39C12;
+}
+
+.player-profile-btn-propose {
+  background: #2ECC71;
+}
+
+.player-profile-btn:hover {
+  filter: brightness(1.08);
+}

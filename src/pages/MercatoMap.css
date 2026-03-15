@@ -1,0 +1,404 @@
+.mercato-page {
+  width: 100%;
+}
+
+.mercato-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .mercato-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.mercato-stat-card {
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mercato-stat-orange {
+  border-color: rgba(249, 115, 22, 0.7);
+}
+
+.mercato-stat-blue {
+  border-color: rgba(59, 130, 246, 0.7);
+}
+
+.mercato-stat-green {
+  border-color: rgba(34, 197, 94, 0.7);
+}
+
+.mercato-stat-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+}
+
+.mercato-stat-orange .mercato-stat-icon { color: #f97316; }
+.mercato-stat-blue .mercato-stat-icon { color: #3b82f6; }
+.mercato-stat-green .mercato-stat-icon { color: #22c55e; }
+
+.mercato-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.mercato-stat-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.mercato-filter-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mercato-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.mercato-filter-btn:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.mercato-filter-btn-active {
+  background: rgba(139, 92, 246, 0.35);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.mercato-filter-btn svg {
+  flex-shrink: 0;
+}
+
+.mercato-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mercato-filters-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.mercato-source-select {
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.mercato-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.mercato-legend-orange {
+  background: #ffa500;
+}
+
+.mercato-legend-blue {
+  background: #1e90ff;
+}
+
+/* ----- Carte Mercato Europe: exact match to reference ----- */
+.mercato-map-section {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.mercato-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.mercato-map-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.mercato-map-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 400;
+}
+
+.mercato-map-legend .mercato-legend-dot {
+  margin-right: 0.15rem;
+}
+
+.mercato-map-pins {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 0 0.5rem;
+}
+
+.mercato-pin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem 0.75rem;
+  min-width: 100px;
+  position: relative;
+}
+
+/* Large circular icon: orange-gold for Offres, blue for Intérêts — with subtle depth */
+.mercato-pin-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.mercato-pin-offres .mercato-pin-circle {
+  background: #c28a14;
+  border: 1px solid rgba(194, 138, 20, 0.8);
+}
+
+.mercato-pin-offres .mercato-pin-circle svg {
+  color: #8b6914;
+  fill: #8b6914;
+  stroke: #8b6914;
+}
+
+.mercato-pin-interets .mercato-pin-circle {
+  background: #337ab7;
+  border: 1px solid rgba(51, 122, 183, 0.8);
+}
+
+.mercato-pin-interets .mercato-pin-circle svg {
+  color: #235a8a;
+  stroke: #235a8a;
+  fill: none;
+}
+
+/* Active state (Portugal) — no extra circle/glow */
+.mercato-pin-active {
+  /* no background circle; same as other pins */
+}
+
+.mercato-pin-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.mercato-pin-name {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.875rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.mercato-pin-count {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Small rectangular flags — proportional to text, like first image */
+.mercato-flag {
+  width: 22px;
+  height: 15px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+}
+
+.mercato-flag-france {
+  background: linear-gradient(to right, #002395 0%, #002395 33.33%, #fff 33.33%, #fff 66.66%, #ed2939 66.66%, #ed2939 100%);
+}
+
+.mercato-flag-portugal {
+  background: linear-gradient(to right, #006600 0%, #006600 50%, #c00 50%, #c00 100%);
+}
+
+.mercato-flag-allemagne {
+  background: linear-gradient(to bottom, #000 0%, #000 33.33%, #dd0000 33.33%, #dd0000 66.66%, #ffce00 66.66%, #ffce00 100%);
+}
+
+.mercato-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .mercato-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mercato-column {
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+}
+
+.mercato-column-orange {
+  border-top: 3px solid #f97316;
+}
+
+.mercato-column-blue {
+  border-top: 3px solid #3b82f6;
+}
+
+.mercato-column-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.mercato-column-title-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+}
+
+.mercato-column-title-green.mercato-column-title-icon {
+  color: #22c55e;
+}
+
+.mercato-entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mercato-entry {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mercato-entry-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.mercato-entry-row1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.mercato-entry-row2 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.mercato-entry-row2 svg {
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.mercato-entry-row3 {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+}
+
+.mercato-entry-name {
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.mercato-entry-club {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mercato-entry-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mercato-entry-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+.mercato-entry-tag {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.mercato-tag-green {
+  background: rgba(22, 101, 52, 0.7);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.35);
+}
+
+.mercato-tag-grey {
+  background: rgba(55, 65, 81, 0.8);
+  color: #9ca3af;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

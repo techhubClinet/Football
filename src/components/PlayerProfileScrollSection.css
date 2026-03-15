@@ -1,0 +1,330 @@
+.player-profile-scroll-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.player-profile-scroll-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  min-height: 400px;
+}
+
+@media (max-width: 900px) {
+  .player-profile-scroll-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.player-profile-scroll-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.player-profile-scroll-block {
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.player-profile-scroll-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+
+.player-profile-scroll-title-icon {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.player-profile-scroll-title-icon.zap {
+  color: #eab308;
+}
+
+.player-profile-scroll-title-icon.green {
+  color: #4ade80;
+}
+
+.player-profile-scroll-title-with-pill {
+  flex-wrap: wrap;
+}
+
+.player-profile-scroll-pill {
+  margin-left: auto;
+  padding: 0.2rem 0.5rem;
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #e9d5ff;
+}
+
+/* Left: Stats list */
+.player-profile-scroll-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player-profile-scroll-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  padding: 0.35rem 0;
+}
+
+.player-profile-scroll-stat-label {
+  color: #9ca3af;
+}
+
+.player-profile-scroll-stat-value {
+  color: #fff;
+  font-weight: 600;
+}
+
+.player-profile-scroll-stat-value.value-green {
+  color: #4ade80;
+}
+
+.player-profile-scroll-stat-value.value-blue {
+  color: #60a5fa;
+}
+
+.player-profile-scroll-stat-value.value-orange {
+  color: #fb923c;
+}
+
+.player-profile-scroll-stat-cards {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.card-dot {
+  width: 10px;
+  height: 14px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.card-yellow {
+  background: #eab308;
+}
+
+.card-orange {
+  background: #f97316;
+}
+
+.card-red {
+  background: #ef4444;
+}
+
+.player-profile-scroll-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Profil de Jeu: radar chart + list */
+.player-profile-radar-wrap {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.player-profile-radar-wrap .radar-chart-svg {
+  width: 220px;
+  height: 220px;
+  display: block;
+}
+
+.radar-chart-label {
+  font-size: 11px;
+  fill: #9ca3af;
+  font-weight: 500;
+}
+
+.player-profile-scroll-profile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+}
+
+.player-profile-scroll-profile-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+}
+
+.player-profile-scroll-profile-list li span:last-child {
+  color: #9ca3af;
+}
+
+/* Center: Activity */
+.player-profile-scroll-empty {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.player-profile-scroll-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.player-profile-scroll-add-btn:hover {
+  filter: brightness(1.1);
+}
+
+.player-profile-scroll-add-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Right: Clubs + Reco */
+.player-profile-clubs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.player-profile-club-match-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem;
+  background: #252525;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.player-profile-club-match-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #333;
+  flex-shrink: 0;
+}
+
+.player-profile-club-match-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.player-profile-club-match-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.15rem;
+}
+
+.player-profile-club-match-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-bottom: 0.35rem;
+}
+
+.player-profile-club-match-bar-wrap {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.player-profile-club-match-bar {
+  height: 100%;
+  background: #4ade80;
+  border-radius: 999px;
+  transition: width 0.2s;
+}
+
+.player-profile-club-match-pct {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+/* Recommandation IA card */
+.player-profile-reco-card {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+.player-profile-reco-text {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.player-profile-reco-club {
+  color: #a78bfa;
+}
+
+.player-profile-reco-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.player-profile-reco-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  margin-bottom: 0.35rem;
+}
+
+.reco-check {
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+.player-profile-propose-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.player-profile-propose-btn:hover {
+  filter: brightness(1.1);
+}

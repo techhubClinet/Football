@@ -1,0 +1,65 @@
+.player-profile-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: playerProfileModalFadeIn 0.2s ease-out;
+}
+
+@keyframes playerProfileModalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.player-profile-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  animation: playerProfileModalSlideIn 0.25s ease-out;
+}
+
+@keyframes playerProfileModalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.player-profile-modal-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.15s, color 0.15s;
+}
+
+.player-profile-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}

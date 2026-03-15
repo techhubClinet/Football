@@ -1,0 +1,434 @@
+.scouting-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 0.5rem 2rem;
+  background: var(--bg-page);
+}
+
+.scouting-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .scouting-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.scouting-stat-card {
+  background: #252525;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.scouting-stat-green {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.scouting-stat-orange {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: rgba(249, 115, 22, 0.5);
+}
+
+.scouting-stat-icon {
+  display: inline-flex;
+  color: #9ca3af;
+  opacity: 0.9;
+}
+
+.scouting-stat-green .scouting-stat-icon {
+  color: #4ade80;
+}
+
+.scouting-stat-orange .scouting-stat-icon {
+  color: #fb923c;
+}
+
+.scouting-stat-label {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.scouting-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.scouting-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.scouting-toolbar .search-wrap {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #252525;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+}
+
+.scouting-toolbar .search-icon {
+  color: #9ca3af;
+  opacity: 0.8;
+}
+
+.scouting-toolbar .toolbar-search {
+  flex: 1;
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.scouting-toolbar .toolbar-search::placeholder {
+  color: #6b7280;
+}
+
+.scouting-toolbar .filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.scouting-toolbar .filter-btn {
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #252525;
+  color: #9ca3af;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.scouting-toolbar .filter-btn:hover {
+  color: #fff;
+}
+
+.scouting-toolbar .filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* One box per section with single border */
+.scouting-group {
+  margin-top: 2rem;
+}
+
+.scouting-group:first-of-type {
+  margin-top: 0;
+}
+
+.scouting-section-box {
+  background: #212121;
+  border: 1px solid #363636;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.scouting-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.scouting-section-icon {
+  flex-shrink: 0;
+}
+
+.scouting-section-icon-voir {
+  color: #9B59B6;
+}
+
+.scouting-section-icon-rapporte {
+  color: #2ECC71;
+}
+
+.scouting-section-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.scouting-section-title-main {
+  color: #E0E0E0;
+}
+
+.scouting-section-title-count {
+  color: #A0A0A0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.scouting-section-divider {
+  height: 1px;
+  background: #2C2C2C;
+  flex-shrink: 0;
+}
+
+.scouting-player-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fixed grid: col1 (avatar+name) | col2 (club) | col3 (potential) | col4 (value) | col5 (actions) */
+.scouting-player-row {
+  display: grid;
+  grid-template-columns: auto 220px 120px 120px 180px;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  min-width: 0;
+}
+
+.scouting-player-row-with-report {
+  align-items: start;
+}
+
+.scouting-player-row-with-report .scouting-report-row {
+  grid-column: 1 / -1;
+  padding: 0.75rem 1rem 1rem;
+  padding-left: calc(1rem + 48px + 0.75rem);
+}
+
+/* Column 1: Avatar + Name + position + age */
+.scouting-col-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.scouting-identity-text {
+  min-width: 0;
+}
+
+/* Column 2: Club + League */
+.scouting-col-club {
+  min-width: 0;
+}
+
+/* Column 3: Potential - left-aligned in fixed column */
+.scouting-col-potential {
+  min-width: 0;
+}
+
+/* Column 4: Value - left-aligned in fixed column */
+.scouting-col-value {
+  min-width: 0;
+}
+
+/* Column 5: Actions - stay right-aligned (last column) */
+.scouting-col-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.scouting-col-actions .scouting-date {
+  font-size: 0.75rem;
+  color: #A0A0A0;
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 900px) {
+  .scouting-player-row,
+  .scouting-player-row-with-report {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .scouting-col-club,
+  .scouting-col-potential,
+  .scouting-col-value {
+    padding-left: calc(48px + 0.75rem);
+  }
+
+  .scouting-player-row-with-report .scouting-report-row {
+    padding-left: calc(48px + 0.75rem);
+  }
+}
+
+.scouting-player-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #333;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.scouting-player-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.15rem;
+}
+
+.scouting-player-name {
+  font-weight: 600;
+  color: #E0E0E0;
+  font-size: 0.95rem;
+}
+
+.scouting-player-meta {
+  font-size: 0.85rem;
+  color: #A0A0A0;
+  margin-bottom: 0.2rem;
+}
+
+.scouting-player-club {
+  font-size: 0.9rem;
+  color: #E0E0E0;
+  margin-bottom: 0.1rem;
+}
+
+.scouting-player-league {
+  font-size: 0.8rem;
+  color: #A0A0A0;
+}
+
+.scouting-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.scouting-tag-green {
+  background: #4CAF50;
+  color: #fff;
+}
+
+.scouting-tag-green svg {
+  flex-shrink: 0;
+}
+
+.scouting-tag-orange {
+  background: #FFC107;
+  color: #1f2937;
+}
+
+.scouting-tag-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* Potential: number on top, label below */
+.scouting-player-potential-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+
+.scouting-player-potential {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.scouting-player-potential.potential-high {
+  color: #2ECC71;
+}
+
+.scouting-player-potential.potential-mid {
+  color: #F39C12;
+}
+
+.scouting-player-potential-label {
+  font-size: 0.75rem;
+  color: #A0A0A0;
+}
+
+/* Value in purple (like eye icon) */
+.scouting-player-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #9B59B6;
+}
+
+
+/* Report: "Rapport:" in magenta, rest in white/grey */
+.scouting-report-row {
+  border-top: 1px solid #2C2C2C;
+  margin-top: 0;
+  padding-top: 0.75rem;
+}
+
+.scouting-report-box {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #E0E0E0;
+}
+
+.scouting-report-prefix {
+  color: #BB86FC;
+  font-weight: 600;
+}
+
+/* Buttons: exact colors from reference */
+.btn-scout {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 110px;
+  text-align: center;
+}
+
+.btn-scout.btn-voir-profil {
+  background: #3498DB;
+  color: #fff;
+  border: none;
+}
+
+.btn-scout.btn-voir-profil:hover {
+  filter: brightness(1.1);
+}
+
+.btn-scout.btn-creer-rapport,
+.btn-scout.btn-voir-rapport {
+  background: #303030;
+  color: #E0E0E0;
+  border: 1px solid #363636;
+}
+
+.btn-scout.btn-creer-rapport:hover,
+.btn-scout.btn-voir-rapport:hover {
+  background: #383838;
+  border-color: #444;
+}

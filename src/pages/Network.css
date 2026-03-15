@@ -1,0 +1,560 @@
+.network-page {
+  width: 100%;
+}
+
+.network-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .network-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.network-feed {
+  min-width: 0;
+}
+
+/* Share composer — avatar + textarea + Photo/Vidéo/Document */
+.network-composer {
+  display: flex;
+  gap: 0.75rem;
+  background: #2c2933;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.network-composer-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.network-composer-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.network-composer-input {
+  width: 100%;
+  padding: 0.5rem 0;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 0.95rem;
+  resize: none;
+  outline: none;
+}
+
+.network-composer-input::placeholder {
+  color: #9ca3af;
+}
+
+.network-composer-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.network-media-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.network-media-btn:hover {
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.network-media-btn.active {
+  background: rgba(142, 62, 201, 0.25);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.network-feed-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.network-feed-title {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.network-feed-count {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.network-post {
+  background: #2c2933;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.network-post-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.network-post-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.network-post-author-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.network-post-author-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.network-post-author {
+  font-weight: 700;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.network-post-time {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.network-verified {
+  color: #22c55e;
+}
+
+.network-link-icon {
+  color: #9ca3af;
+}
+
+.network-post-fifa-tag {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.network-post-trophy {
+  color: #22c55e;
+}
+
+.network-post-meta {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  display: block;
+  margin-top: 0.15rem;
+}
+
+.network-post-content {
+  font-size: 0.95rem;
+  color: #fff;
+  line-height: 1.5;
+  margin: 0 0 0.75rem;
+}
+
+.network-post-image {
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.network-post-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.network-post-video {
+  position: relative;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.network-post-video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.network-post-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  color: var(--accent);
+  padding: 0;
+}
+
+.network-post-play:hover {
+  background: rgba(0, 0, 0, 0.4);
+  color: #a062d0;
+}
+
+.network-post-play svg {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.network-load-more-wrap {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.network-load-more {
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.network-load-more:hover {
+  text-decoration: underline;
+}
+
+.network-post-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.network-hashtag {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(142, 62, 201, 0.25);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.network-post-engagement {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 0.75rem;
+}
+
+.network-post-engagement span + span {
+  margin-left: 1rem;
+}
+
+.network-post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.network-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.network-action-btn:hover {
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.network-action-primary {
+  background: var(--accent);
+  color: #fff;
+  margin-left: auto;
+}
+
+.network-action-primary:hover {
+  background: #a062d0;
+  color: #fff;
+}
+
+.network-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.network-sidebar-section {
+  background: #2c2933;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.network-sidebar-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.network-sidebar-title-icon {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.network-sidebar-title-icon-purple {
+  color: var(--accent);
+}
+
+.network-sidebar-title-icon-green {
+  color: #22c55e;
+}
+
+.network-sidebar-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 0 1rem;
+}
+
+.network-sidebar-subtitle {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.network-request-card,
+.network-suggestion-card {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.network-request-card:last-of-type,
+.network-suggestion-card:last-of-type {
+  border-bottom: none;
+}
+
+.network-request-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.network-request-avatar,
+.network-suggestion-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.network-request-info,
+.network-suggestion-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.network-request-name {
+  font-weight: 700;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.network-request-verified {
+  color: #22c55e;
+}
+
+.network-request-badge {
+  color: #9ca3af;
+}
+
+.network-request-fifa-tag {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.4rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.network-suggestion-name {
+  font-weight: 700;
+  color: #fff;
+  display: block;
+}
+
+.network-request-role,
+.network-suggestion-role {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  display: block;
+}
+
+.network-request-meta,
+.network-request-common {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+.network-request-meta svg,
+.network-request-common svg {
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+.network-request-actions {
+  display: flex;
+  gap: 0.35rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btn-accept {
+  padding: 0.4rem 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-accept:hover {
+  background: #a062d0;
+}
+
+.btn-ignore {
+  padding: 0.4rem 0.75rem;
+  background: #2c2933;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-ignore:hover {
+  background: #3d3844;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-connect {
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  color: #fff;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.btn-connect:hover {
+  background: rgba(142, 62, 201, 0.2);
+}
+
+.network-suggestion-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.network-sidebar-link {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.network-sidebar-link:hover {
+  text-decoration: underline;
+}
+
+/* Votre réseau section */
+.network-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.network-stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+}
+
+.network-stat-label {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.network-stat-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.network-stat-value-green {
+  color: #22c55e;
+}

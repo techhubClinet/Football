@@ -1,0 +1,375 @@
+.contacts-crm {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 0.5rem 2rem;
+  background: var(--bg-page);
+}
+
+.role-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+  .role-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.role-stat-card {
+  background: #252525;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+}
+
+.role-stat-label {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.role-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.contacts-crm .toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.contacts-crm .search-wrap {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #252525;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+}
+
+.contacts-crm .search-icon {
+  color: #9ca3af;
+  opacity: 0.8;
+}
+
+.contacts-crm .toolbar-search {
+  flex: 1;
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.contacts-crm .toolbar-search::placeholder {
+  color: #6b7280;
+}
+
+.contacts-crm .filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.contacts-crm .filter-btn {
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #252525;
+  color: #9ca3af;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.contacts-crm .filter-btn:hover {
+  color: #fff;
+}
+
+.contacts-crm .filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.contacts-crm .filter-country {
+  padding: 0.5rem 2rem 0.5rem 0.85rem;
+  background: #252525;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+}
+
+.contacts-crm .filter-country:hover,
+.contacts-crm .filter-country:focus {
+  color: #fff;
+}
+
+.contacts-crm-empty {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 2rem 0;
+}
+
+.contact-group {
+  margin-top: 2.5rem;
+}
+
+.contact-group:first-of-type {
+  margin-top: 0;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.group-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.contact-group .group-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.contact-group .group-count {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.section-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+}
+
+.section-tag-ds {
+  background: rgba(139, 92, 246, 0.35);
+  color: #a78bfa;
+  border-color: rgba(139, 92, 246, 0.55);
+}
+
+.section-tag-recruteur {
+  background: rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.55);
+}
+
+.section-tag-coach {
+  background: rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.55);
+}
+
+.section-tag-avocat {
+  background: rgba(255, 255, 255, 0.12);
+  color: #d1d5db;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.section-tag-inter {
+  background: rgba(249, 115, 22, 0.35);
+  color: #fb923c;
+  border-color: rgba(249, 115, 22, 0.55);
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: minmax(220px, auto) minmax(200px, 1fr) minmax(200px, auto) auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: #252525;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .contact-card {
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+  }
+
+  .contact-card-org,
+  .contact-card-contact {
+    grid-column: 2;
+  }
+
+  .contact-card-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+}
+
+.contact-card-dp-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.contact-card-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--border);
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-sizing: border-box;
+}
+
+.contact-card-info {
+  min-width: 0;
+}
+
+.contact-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.15rem;
+}
+
+.contact-name {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.contact-verified {
+  color: var(--success);
+  display: inline-flex;
+}
+
+.contact-role {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 0.1rem;
+}
+
+.contact-activity {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.contact-card-org {
+  min-width: 0;
+}
+
+.contact-affiliation {
+  font-size: 0.9rem;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.contact-club-icon {
+  color: var(--accent);
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+.contact-location {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 0.1rem;
+}
+
+.contact-league {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.contact-card-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.contact-phone,
+.contact-email {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.contact-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.btn-contact {
+  padding: 0.55rem 1.35rem;
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid rgba(139, 92, 246, 0.6);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-contact:hover {
+  filter: brightness(1.1);
+}
+
+.btn-view {
+  padding: 0.55rem 0.85rem;
+  background: #252525;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-view:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+}
