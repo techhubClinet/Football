@@ -1,6 +1,16 @@
 .timesheet-page {
   width: 100%;
   padding-bottom: 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .timesheet-page {
+    padding: 0.85rem 1rem 5rem;
+  }
 }
 
 .timesheet-header {
@@ -14,7 +24,7 @@
 
 .timesheet-header h1 {
   margin: 0 0 0.35rem;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--text);
 }
@@ -33,11 +43,11 @@
 
 .btn-export {
   padding: 0.5rem 1rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 10px;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -50,12 +60,12 @@
 
 .btn-new-action {
   padding: 0.5rem 1rem;
-  background: var(--info);
+  background: var(--accent);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   color: white;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -77,53 +87,58 @@
   }
 }
 
-.timesheet-stat-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+@media (max-width: 420px) {
+  .timesheet-stats {
+    grid-template-columns: 1fr;
+  }
 }
 
-.timesheet-stat-card .timesheet-stat-icon {
-  color: var(--info);
+.timesheet-stat-card {
+  background: #0a0a0a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.timesheet-stat-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .timesheet-stat-orange {
-  border-color: var(--warning);
-  background: rgba(245, 158, 11, 0.06);
-}
-
-.timesheet-stat-orange .timesheet-stat-icon {
-  color: var(--warning);
+  /* same border as all cards */
 }
 
 .timesheet-stat-green {
-  border-color: var(--success);
-  background: rgba(34, 197, 94, 0.06);
-}
-
-.timesheet-stat-green .timesheet-stat-icon {
-  color: var(--success);
+  /* same border as all cards */
 }
 
 .timesheet-stat-purple {
-  border-color: var(--accent);
-  background: rgba(139, 92, 246, 0.06);
+  /* same border as all cards */
 }
 
-.timesheet-stat-purple .timesheet-stat-icon {
-  color: var(--accent);
-}
-
-.timesheet-stat-icon {
-  font-size: 1rem;
+.timesheet-stat-iconBox {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: #9ca3af;
+  flex-shrink: 0;
 }
+
+.timesheet-stat-orange .timesheet-stat-iconBox { background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.25); color: #f59e0b; }
+.timesheet-stat-green .timesheet-stat-iconBox { background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.25); color: #22c55e; }
+.timesheet-stat-purple .timesheet-stat-iconBox { background: rgba(143, 68, 173, 0.18); border-color: rgba(143, 68, 173, 0.35); color: #8f44ad; }
+.timesheet-stat-card:not(.timesheet-stat-orange):not(.timesheet-stat-green):not(.timesheet-stat-purple) .timesheet-stat-iconBox { background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.25); color: #60a5fa; }
 
 .timesheet-stat-label {
   font-size: 0.8rem;
@@ -131,7 +146,7 @@
 }
 
 .timesheet-stat-value {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text);
 }
@@ -141,8 +156,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
   margin-bottom: 1.5rem;
+  background: #0a0a0a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
 }
 
 .timesheet-toolbar .search-wrap {
@@ -151,10 +170,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.5rem 0.75rem;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 0.55rem 0.85rem;
 }
 
 .timesheet-toolbar .search-icon {
@@ -177,29 +196,58 @@
 }
 
 .timesheet-filter {
-  padding: 0.5rem 0.75rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  padding: 0.55rem 0.85rem;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
   color: var(--text);
   font-size: 0.9rem;
   cursor: pointer;
 }
 
 /* Journal */
+.timesheet-journal {
+  background: #0a0a0a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
 .timesheet-journal-title {
   margin: 0 0 1rem;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text);
+  color: #fff;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .timesheet-journal-title-icon {
-  color: var(--text-muted);
+  color: #9ca3af;
   flex-shrink: 0;
+}
+
+.timesheet-journal-scroll {
+  min-height: 280px;
+  max-height: min(70vh, 720px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.25rem;
+}
+
+.timesheet-journal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.timesheet-journal-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 3px;
+}
+
+.timesheet-journal-scroll::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
 }
 
 .timesheet-timeline {
@@ -213,7 +261,7 @@
   align-items: stretch;
   gap: 0;
   position: relative;
-  padding-bottom: 1.25rem;
+  padding-bottom: 1rem;
 }
 
 .timesheet-activity:last-child {
@@ -226,7 +274,7 @@
   top: 44px;
   bottom: 0;
   width: 2px;
-  background: var(--border);
+  background: #333333;
   z-index: 0;
 }
 
@@ -247,84 +295,89 @@
 }
 
 .timesheet-activity-icon-blue {
-  background: rgba(59, 130, 246, 0.25);
-  color: var(--info);
+  background: rgba(59, 130, 246, 0.28);
+  color: #60a5fa;
 }
 
 .timesheet-activity-icon-purple {
-  background: rgba(139, 92, 246, 0.25);
-  color: var(--accent);
+  background: rgba(139, 92, 246, 0.28);
+  color: #a78bfa;
 }
 
 .timesheet-activity-icon-orange {
-  background: rgba(245, 158, 11, 0.25);
-  color: var(--warning);
+  background: rgba(245, 158, 11, 0.28);
+  color: #f59e0b;
 }
 
 .timesheet-activity-icon-green {
-  background: rgba(34, 197, 94, 0.25);
-  color: var(--success);
+  background: rgba(34, 197, 94, 0.28);
+  color: #22c55e;
 }
 
 .timesheet-activity-icon-red {
-  background: rgba(239, 68, 68, 0.25);
+  background: rgba(239, 68, 68, 0.28);
   color: #ef4444;
 }
 
 .timesheet-activity-card {
   flex: 1;
   min-width: 0;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: #1a1a1a;
+  border: 1px solid #333333;
   border-radius: 10px;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.25rem;
+  padding-top: 1.35rem;
+  padding-bottom: 1.35rem;
   position: relative;
-}
-
-.timesheet-activity-first .timesheet-activity-card {
-  border-color: #da503d;
 }
 
 .timesheet-activity-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.timesheet-activity-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   flex-wrap: wrap;
 }
 
 .timesheet-activity-type {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   padding: 0.2rem 0.5rem;
-  border-radius: 6px;
-  color: white;
+  border-radius: 4px;
+  color: #fff;
 }
 
 .timesheet-activity-type-blue {
-  background: var(--info);
+  background: #2563eb;
 }
 
 .timesheet-activity-type-purple {
-  background: var(--accent);
+  background: #7c3aed;
 }
 
 .timesheet-activity-type-orange {
-  background: var(--warning);
+  background: #d97706;
 }
 
 .timesheet-activity-type-green {
-  background: var(--success);
+  background: #059669;
 }
 
 .timesheet-activity-type-red {
-  background: #ef4444;
+  background: #dc2626;
 }
 
 .timesheet-activity-status {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   padding: 0.2rem 0.5rem;
-  border-radius: 6px;
+  border-radius: 4px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -337,19 +390,35 @@
 
 .timesheet-status-green {
   background: rgba(34, 197, 94, 0.2);
-  color: var(--success);
+  color: #22c55e;
 }
 
 .timesheet-status-orange {
   background: rgba(245, 158, 11, 0.2);
-  color: var(--warning);
+  color: #eab308;
+}
+
+.timesheet-activity-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.timesheet-activity-delete:hover {
+  color: #9ca3af;
 }
 
 .timesheet-activity-desc {
   margin: 0 0 0.5rem;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text);
+  color: #fff;
   line-height: 1.4;
 }
 
@@ -358,46 +427,43 @@
   flex-wrap: wrap;
   gap: 1rem;
   font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
+  color: #9ca3af;
+  margin-bottom: 0;
 }
 
 .timesheet-meta-icon {
   vertical-align: middle;
   margin-right: 0.2rem;
-  opacity: 0.8;
+  opacity: 0.9;
+}
+
+.timesheet-activity-duration {
+  display: inline-flex;
+  align-items: center;
 }
 
 .timesheet-activity-players {
   font-size: 0.85rem;
-  color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #333333;
 }
 
 .timesheet-players-icon {
   flex-shrink: 0;
-  color: var(--text-muted);
-  opacity: 0.9;
+  color: #9ca3af;
 }
 
-.timesheet-activity-delete {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-muted);
-  padding: 0.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.timesheet-players-label {
+  color: #9ca3af;
 }
 
-.timesheet-activity-delete:hover {
-  color: var(--text);
+.timesheet-players-names {
+  color: #fff;
 }
 
 /* FAB */

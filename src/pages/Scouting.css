@@ -2,56 +2,52 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 1rem 0.5rem 2rem;
+  padding: 1rem 1.5rem 2rem;
   background: var(--bg-page);
+  box-sizing: border-box;
 }
 
+@media (max-width: 640px) {
+  .scouting-page {
+    padding: 0.85rem 1rem 2rem;
+  }
+}
+
+/* —— Stats cards (match reference: default dark grey, green & orange highlighted) —— */
 .scouting-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (max-width: 768px) {
   .scouting-stats {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .scouting-stats {
+    grid-template-columns: 1fr;
   }
 }
 
 .scouting-stat-card {
-  background: #252525;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-}
-
-.scouting-stat-green {
-  background: rgba(34, 197, 94, 0.2);
-  border-color: rgba(34, 197, 94, 0.5);
-}
-
-.scouting-stat-orange {
-  background: rgba(245, 158, 11, 0.2);
-  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .scouting-stat-icon {
   display: inline-flex;
   color: #9ca3af;
   opacity: 0.9;
-}
-
-.scouting-stat-green .scouting-stat-icon {
-  color: #4ade80;
-}
-
-.scouting-stat-orange .scouting-stat-icon {
-  color: #fb923c;
 }
 
 .scouting-stat-label {
@@ -65,24 +61,59 @@
   color: #fff;
 }
 
+/* Green card: Top Cibles */
+.scouting-stat-green {
+  background: #0d2818;
+  border: 1px solid #007600;
+}
+
+.scouting-stat-green .scouting-stat-icon,
+.scouting-stat-green .scouting-stat-label,
+.scouting-stat-green .scouting-stat-value {
+  color: #22c55e;
+}
+
+/* Orange card: À Suivre */
+.scouting-stat-orange {
+  background: #2d2318;
+  border: 1px solid #be8c37;
+}
+
+.scouting-stat-orange .scouting-stat-icon,
+.scouting-stat-orange .scouting-stat-label,
+.scouting-stat-orange .scouting-stat-value {
+  color: #d4a84b;
+}
+
+/* Évalués: default grey, icon/label light grey */
+.scouting-stat-card:last-child .scouting-stat-icon,
+.scouting-stat-card:last-child .scouting-stat-label {
+  color: #9ca3af;
+}
+
+.scouting-stat-card:last-child .scouting-stat-value {
+  color: #fff;
+}
+
+/* —— Toolbar —— */
 .scouting-toolbar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.25rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .scouting-toolbar .search-wrap {
   flex: 1;
-  min-width: 260px;
+  min-width: 220px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: #252525;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  padding: 0.65rem 1rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .scouting-toolbar .search-icon {
@@ -106,13 +137,13 @@
 .scouting-toolbar .filter-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .scouting-toolbar .filter-btn {
   padding: 0.5rem 0.85rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #252525;
+  border: none;
+  background: #1a1a1a;
   color: #9ca3af;
   border-radius: 8px;
   font-size: 0.85rem;
@@ -121,17 +152,17 @@
 
 .scouting-toolbar .filter-btn:hover {
   color: #fff;
+  background: #262626;
 }
 
 .scouting-toolbar .filter-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: #8f44ad;
   color: #fff;
 }
 
-/* One box per section with single border */
+/* —— Section: single card with header (like Contacts / Player Portfolio) —— */
 .scouting-group {
-  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .scouting-group:first-of-type {
@@ -139,8 +170,8 @@
 }
 
 .scouting-section-box {
-  background: #212121;
-  border: 1px solid #363636;
+  background: #1a1a1a;
+  border: 1px solid #3a3a3a;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -149,7 +180,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1rem;
+  padding: 24px 24px 20px;
+  background: #0a0a0a;
+  border-bottom: 1px solid #3a3a3a;
+  text-align: left;
 }
 
 .scouting-section-icon {
@@ -157,32 +191,33 @@
 }
 
 .scouting-section-icon-voir {
-  color: #9B59B6;
+  color: #8f44ad;
 }
 
 .scouting-section-icon-rapporte {
-  color: #2ECC71;
+  color: #22c55e;
 }
 
 .scouting-section-title {
   margin: 0;
-  font-size: 1rem;
+  font-size: 18px;
   font-weight: 600;
+  line-height: 1.25;
 }
 
 .scouting-section-title-main {
-  color: #E0E0E0;
+  color: #fff;
 }
 
 .scouting-section-title-count {
-  color: #A0A0A0;
-  font-size: 0.9rem;
-  font-weight: 500;
+  color: #9c9c9c;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .scouting-section-divider {
   height: 1px;
-  background: #2C2C2C;
+  background: #3a3a3a;
   flex-shrink: 0;
 }
 
@@ -191,84 +226,175 @@
   flex-direction: column;
 }
 
-/* Fixed grid: col1 (avatar+name) | col2 (club) | col3 (potential) | col4 (value) | col5 (actions) */
 .scouting-player-row {
   display: grid;
-  grid-template-columns: auto 220px 120px 120px 180px;
+  grid-template-columns: minmax(180px, auto) minmax(120px, auto) minmax(100px, auto) minmax(80px, auto) minmax(130px, auto);
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 28px;
+  padding: 20px 24px;
+  min-height: 80px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #3a3a3a;
   min-width: 0;
+}
+
+.scouting-player-row:last-child {
+  border-bottom: none;
+}
+
+.scouting-player-row:hover {
+  background: #0a0a0a;
 }
 
 .scouting-player-row-with-report {
   align-items: start;
+  grid-template-rows: auto auto;
 }
 
 .scouting-player-row-with-report .scouting-report-row {
   grid-column: 1 / -1;
-  padding: 0.75rem 1rem 1rem;
-  padding-left: calc(1rem + 48px + 0.75rem);
-}
-
-/* Column 1: Avatar + Name + position + age */
-.scouting-col-identity {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-width: 0;
-}
-
-.scouting-identity-text {
-  min-width: 0;
-}
-
-/* Column 2: Club + League */
-.scouting-col-club {
-  min-width: 0;
-}
-
-/* Column 3: Potential - left-aligned in fixed column */
-.scouting-col-potential {
-  min-width: 0;
-}
-
-/* Column 4: Value - left-aligned in fixed column */
-.scouting-col-value {
-  min-width: 0;
-}
-
-/* Column 5: Actions - stay right-aligned (last column) */
-.scouting-col-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.4rem;
-  min-width: 0;
-}
-
-.scouting-col-actions .scouting-date {
-  font-size: 0.75rem;
-  color: #A0A0A0;
-  margin-top: 0.1rem;
+  padding: 12px 20px 16px;
+  padding-left: calc(20px + 48px + 12px);
+  background: #0a0a0a;
+  border-radius: 8px;
 }
 
 @media (max-width: 900px) {
   .scouting-player-row,
   .scouting-player-row-with-report {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 10px 12px;
+    padding: 14px 16px;
+    align-items: stretch;
   }
 
-  .scouting-col-club,
-  .scouting-col-potential,
+  .scouting-col-identity {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .scouting-col-club {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-left: 0;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .scouting-col-potential {
+    grid-column: 1;
+    grid-row: 3;
+    padding-left: 0;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+
+  .scouting-col-potential .scouting-player-potential-wrap {
+    align-items: flex-start;
+  }
+
   .scouting-col-value {
-    padding-left: calc(48px + 0.75rem);
+    grid-column: 2;
+    grid-row: 3;
+    text-align: right;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 0;
+    align-self: center;
+  }
+
+  .scouting-col-actions {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    justify-self: stretch;
+    align-items: stretch;
+    flex-direction: row;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .scouting-col-actions .btn-scout {
+    flex: 1;
+    min-width: 0;
   }
 
   .scouting-player-row-with-report .scouting-report-row {
-    padding-left: calc(48px + 0.75rem);
+    grid-column: 1 / -1;
+    grid-row: 5;
+    padding-left: 16px;
   }
+}
+
+.scouting-col-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  text-align: left;
+}
+
+.scouting-identity-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scouting-col-club {
+  min-width: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scouting-col-potential {
+  min-width: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.scouting-col-potential .scouting-player-potential-wrap {
+  align-items: center;
+  margin: 0;
+}
+
+.scouting-col-value {
+  min-width: 0;
+  text-align: right;
+}
+
+.scouting-col-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  min-width: 0;
+  justify-self: end;
+}
+
+.scouting-player-potential-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.scouting-col-actions .scouting-date {
+  font-size: 12px;
+  color: #9c9c9c;
+  margin-top: 2px;
 }
 
 .scouting-player-avatar {
@@ -279,141 +405,155 @@
   object-fit: cover;
   display: block;
   flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
   box-sizing: border-box;
-}
-
-.scouting-player-name-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.15rem;
 }
 
 .scouting-player-name {
   font-weight: 600;
-  color: #E0E0E0;
-  font-size: 0.95rem;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.25;
+  text-align: left;
 }
 
 .scouting-player-meta {
-  font-size: 0.85rem;
-  color: #A0A0A0;
-  margin-bottom: 0.2rem;
+  font-size: 14px;
+  color: #9c9c9c;
+  line-height: 1.25;
 }
 
 .scouting-player-club {
-  font-size: 0.9rem;
-  color: #E0E0E0;
-  margin-bottom: 0.1rem;
+  font-size: 16px;
+  color: #fff;
 }
 
 .scouting-player-league {
-  font-size: 0.8rem;
-  color: #A0A0A0;
+  font-size: 14px;
+  color: #9c9c9c;
 }
 
 .scouting-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.7rem;
-  padding: 0.2rem 0.45rem;
-  border-radius: 6px;
-  font-weight: 600;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 5px;
+  border: 1px solid transparent;
 }
 
-.scouting-tag-green {
-  background: #4CAF50;
-  color: #fff;
-}
-
-.scouting-tag-green svg {
-  flex-shrink: 0;
-}
-
-.scouting-tag-orange {
-  background: #FFC107;
-  color: #1f2937;
-}
-
-.scouting-tag-dot {
-  width: 5px;
-  height: 5px;
+.scouting-tag-circle {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: currentColor;
   flex-shrink: 0;
 }
 
-/* Potential: number on top, label below */
-.scouting-player-potential-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.1rem;
+.scouting-tag-circle-green {
+  background: #00ff00;
+  box-shadow: 0 0 6px rgba(0, 255, 0, 0.5);
 }
+
+.scouting-tag-circle-orange {
+  background: radial-gradient(circle at 30% 30%, #ffe066, #FECB01 50%, #c27a00);
+  box-shadow: 0 0 4px rgba(254, 203, 1, 0.5);
+}
+
+.scouting-tag-word-first {
+  font-weight: 500;
+}
+
+.scouting-tag-word-rest {
+  font-weight: 500;
+}
+
+.scouting-tag-text {
+  font-weight: 500;
+}
+
+/* Top Cible (original): dark green bg, bright green border, white text, small green circle */
+.scouting-tag-green {
+  background: #1a6b32;
+  border-color: #00ff00;
+}
+
+.scouting-tag-green .scouting-tag-text {
+  color: #ffffff;
+}
+
+/* À Suivre: dark brown bg, orange-gold border, first word muted gold, rest orange-gold */
+.scouting-tag-orange {
+  background: #4e3b23;
+  border-color: #c27a00;
+}
+
+.scouting-tag-orange .scouting-tag-word-first {
+  color: #c28b50;
+}
+
+.scouting-tag-orange .scouting-tag-word-rest {
+  color: #c27a00;
+}
+
 
 .scouting-player-potential {
-  font-size: 1rem;
+  font-size: 18px;
   font-weight: 700;
 }
 
 .scouting-player-potential.potential-high {
-  color: #2ECC71;
+  color: #6edc6e;
 }
 
 .scouting-player-potential.potential-mid {
-  color: #F39C12;
+  color: #ff8c00;
 }
 
-.scouting-player-potential-label {
-  font-size: 0.75rem;
-  color: #A0A0A0;
-}
-
-/* Value in purple (like eye icon) */
 .scouting-player-value {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #9B59B6;
+  font-size: 16px;
+  font-weight: 500;
+  color: #8f44ad;
 }
 
-
-/* Report: "Rapport:" in magenta, rest in white/grey */
 .scouting-report-row {
-  border-top: 1px solid #2C2C2C;
-  margin-top: 0;
-  padding-top: 0.75rem;
+  border-top: 1px solid #3a3a3a;
+  padding-top: 12px;
 }
 
 .scouting-report-box {
-  font-size: 0.85rem;
+  font-size: 15px;
   line-height: 1.45;
-  color: #E0E0E0;
+  color: #cccccc;
+  text-align: left;
 }
 
 .scouting-report-prefix {
-  color: #BB86FC;
+  color: #a052e6;
   font-weight: 600;
 }
 
-/* Buttons: exact colors from reference */
 .btn-scout {
-  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
-  min-width: 110px;
-  text-align: center;
+  min-width: 120px;
+  height: 40px;
+  box-sizing: border-box;
 }
 
 .btn-scout.btn-voir-profil {
-  background: #3498DB;
+  background: #3391d1;
   color: #fff;
   border: none;
+  padding-left: 59px;
+  padding-right: 59px;
 }
 
 .btn-scout.btn-voir-profil:hover {
@@ -422,13 +562,36 @@
 
 .btn-scout.btn-creer-rapport,
 .btn-scout.btn-voir-rapport {
-  background: #303030;
-  color: #E0E0E0;
-  border: 1px solid #363636;
+  background: #282828;
+  color: #fff;
+  border: 1px solid #3a3a3a;
+}
+
+.btn-scout.btn-creer-rapport,
+.btn-scout.btn-voir-rapport {
+  padding-left: 45px;
+  padding-right: 45px;
+  height: 40px;
+  min-height: 40px;
 }
 
 .btn-scout.btn-creer-rapport:hover,
 .btn-scout.btn-voir-rapport:hover {
-  background: #383838;
+  background: #0a0a0a;
   border-color: #444;
+}
+
+@media (max-width: 640px) {
+  .scouting-player-row,
+  .scouting-player-row-with-report {
+    padding: 12px 14px;
+    gap: 10px 12px;
+  }
+
+  .scouting-col-actions .btn-scout {
+    padding-left: 12px;
+    padding-right: 12px;
+    min-width: 0;
+    font-size: 14px;
+  }
 }

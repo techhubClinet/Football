@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { Search, AlertTriangle, DollarSign, Calendar, MapPin, ArrowLeftRight, ChevronDown, Check } from '../components/Icons';
+import { Search, AlertTriangle, Euro, Calendar, MapPin, ArrowLeftRight, ChevronDown, Check } from '../components/Icons';
 import './PlayerPortfolio.css';
 
 const portfolioStats = [
-  { label: 'Valeur Totale', value: '6.8M€', icon: DollarSign },
+  { label: 'Valeur Totale', value: '6.8M€', icon: Euro },
   { label: 'Joueurs Actifs', value: '5', icon: Calendar },
   { label: 'Ligues', value: '4', icon: MapPin },
   { label: 'Mandats M-6', value: '2', alert: true, icon: AlertTriangle },
@@ -160,10 +160,12 @@ export default function PlayerPortfolio() {
           const Icon = s.icon;
           return (
             <div key={s.label} className={`stat-card ${s.alert ? 'stat-card-alert' : ''}`}>
-              <span className={`stat-card-icon ${s.alert ? 'stat-card-icon-alert' : ''}`}>
-                <Icon size={20} strokeWidth={2} aria-hidden />
-              </span>
-              <span className="stat-label">{s.label}</span>
+              <div className="stat-card-heading">
+                <span className={`stat-card-icon ${s.alert ? 'stat-card-icon-alert' : ''}`}>
+                  <Icon size={20} strokeWidth={2} aria-hidden />
+                </span>
+                <span className="stat-label">{s.label}</span>
+              </div>
               <span className="stat-value">{s.value}</span>
             </div>
           );
@@ -234,14 +236,16 @@ export default function PlayerPortfolio() {
       ) : (
         playersByGroup.map((group) => (
           <section key={group.range} className="player-group">
-            <h3 className="group-title">
-              <span className="group-title-range">{group.range}</span>
-              <span className="group-title-count">({group.count} joueur(s))</span>
-            </h3>
-            <div className="player-list">
-              {group.players.map((p) => (
-                <PlayerCard key={p.name} player={p} />
-              ))}
+            <div className="player-group-card">
+              <header className="player-group-header">
+                <span className="group-title-range">{group.range}</span>
+                <span className="group-title-count">{group.count} joueur(s)</span>
+              </header>
+              <div className="player-list">
+                {group.players.map((p) => (
+                  <PlayerCard key={p.name} player={p} />
+                ))}
+              </div>
             </div>
           </section>
         ))

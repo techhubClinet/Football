@@ -6,6 +6,12 @@
   background: var(--bg-page);
 }
 
+@media (max-width: 640px) {
+  .player-profile-page {
+    padding: 0.85rem 1rem 2rem;
+  }
+}
+
 .player-profile-back {
   display: inline-flex;
   align-items: center;

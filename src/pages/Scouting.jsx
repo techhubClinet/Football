@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, Check, Clock, FileText, Search } from '../components/Icons';
+import { Eye, Check, Clock, FileText, Search, TrendingUp } from '../components/Icons';
 import PlayerProfileModal from '../components/PlayerProfileModal';
 import './Scouting.css';
 
@@ -7,7 +7,7 @@ const stats = [
   { label: 'À Voir', value: 2, icon: Eye, highlight: null },
   { label: 'Top Cibles', value: 1, icon: Check, highlight: 'green' },
   { label: 'À Suivre', value: 1, icon: Clock, highlight: 'orange' },
-  { label: 'Évalués', value: 3, icon: FileText, highlight: null },
+  { label: 'Évalués', value: 3, icon: TrendingUp, highlight: null },
 ];
 
 const aVoir = [
@@ -122,7 +122,6 @@ export default function Scouting() {
                   <div className="scouting-col scouting-col-potential">
                     <div className="scouting-player-potential-wrap">
                       <span className={`scouting-player-potential ${p.potentialHigh ? 'potential-high' : 'potential-mid'}`}>{p.potential}</span>
-                      <span className="scouting-player-potential-label">Niveau potentiel</span>
                     </div>
                   </div>
                   <div className="scouting-col scouting-col-value">
@@ -163,16 +162,7 @@ export default function Scouting() {
                       <div className="scouting-player-avatar" />
                     )}
                     <div className="scouting-identity-text">
-                      <div className="scouting-player-name-row">
-                        <span className="scouting-player-name">{p.name}</span>
-                        {p.tag && (
-                          <span className={`scouting-tag scouting-tag-${p.tagType}`}>
-                            {p.tagType === 'green' && <Check size={12} strokeWidth={2.5} aria-hidden />}
-                            {p.tagType === 'orange' && <span className="scouting-tag-dot" aria-hidden />}
-                            {p.tag}
-                          </span>
-                        )}
-                      </div>
+                      <div className="scouting-player-name">{p.name}</div>
                       <div className="scouting-player-meta">{p.position} • {p.age} ans</div>
                     </div>
                   </div>
@@ -183,8 +173,26 @@ export default function Scouting() {
                   <div className="scouting-col scouting-col-potential">
                     <div className="scouting-player-potential-wrap">
                       <span className={`scouting-player-potential ${p.potentialHigh ? 'potential-high' : 'potential-mid'}`}>{p.potential}</span>
-                      <span className="scouting-player-potential-label">Niveau potentiel</span>
                     </div>
+                    {p.tag && (() => {
+                      const parts = p.tag.split(/\s+/);
+                      const firstWord = parts[0] || '';
+                      const restText = parts.slice(1).join(' ');
+                      return (
+                        <span className={`scouting-tag scouting-tag-${p.tagType}`}>
+                          {p.tagType === 'green' && <span className="scouting-tag-circle scouting-tag-circle-green" aria-hidden />}
+                          {p.tagType === 'orange' && <span className="scouting-tag-circle scouting-tag-circle-orange" aria-hidden />}
+                          {p.tagType === 'green' ? (
+                            <span className="scouting-tag-text">{p.tag}</span>
+                          ) : (
+                            <>
+                              <span className="scouting-tag-word-first">{firstWord}</span>
+                              {restText && <span className="scouting-tag-word-rest"> {restText}</span>}
+                            </>
+                          )}
+                        </span>
+                      );
+                    })()}
                   </div>
                   <div className="scouting-col scouting-col-value">
                     <div className="scouting-player-value">{p.value}</div>

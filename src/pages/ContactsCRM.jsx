@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Check, Building2, Phone, Mail } from '../components/Icons';
+import { Search, Check, Building2, Phone, Mail, Clock, MapPin } from '../components/Icons';
 import './ContactsCRM.css';
 
 const roleCounts = [
@@ -74,7 +74,9 @@ function ContactCard({ contact }) {
             <span className="contact-verified"><Check size={14} strokeWidth={2.5} aria-hidden /></span>
           </div>
           <div className="contact-role">{contact.role}</div>
-          <div className="contact-activity">{contact.activity}</div>
+          <div className="contact-activity">
+            <Clock size={12} strokeWidth={2} aria-hidden /> {contact.activity}
+          </div>
         </div>
       </div>
       <div className="contact-card-org">
@@ -82,7 +84,7 @@ function ContactCard({ contact }) {
           <span className="contact-club-icon"><Building2 size={14} strokeWidth={2} aria-hidden /></span> {contact.club}
         </div>
         <div className="contact-location">
-          {countryFlags[contact.country]} {countryNames[contact.country] || contact.country}
+          <MapPin size={12} strokeWidth={2} aria-hidden /> {countryFlags[contact.country]} {countryNames[contact.country] || contact.country}
         </div>
         <div className="contact-league">{contact.league}</div>
       </div>
@@ -90,9 +92,11 @@ function ContactCard({ contact }) {
         <div className="contact-phone"><Phone size={14} strokeWidth={2} aria-hidden /> {contact.phone}</div>
         <div className="contact-email"><Mail size={14} strokeWidth={2} aria-hidden /> {contact.email}</div>
       </div>
-      <div className="contact-card-actions">
-        <button type="button" className="btn-contact">Contacter</button>
-        <button type="button" className="btn-view">Voir</button>
+      <div className="contact-card-right">
+        <div className="contact-card-actions">
+          <button type="button" className="btn-contact">Contacter</button>
+          <button type="button" className="btn-view">Voir</button>
+        </div>
       </div>
     </div>
   );
@@ -184,17 +188,19 @@ export default function ContactsCRM() {
       ) : (
         filteredGroups.map((group) => (
           <section key={group.role} className="contact-group">
-            <div className="group-header">
-              <div className="group-title-wrap">
-                <h3 className="group-title">{group.role}</h3>
-                <span className="group-count">{group.contacts.length} contact(s)</span>
+            <div className="contact-group-card">
+              <header className="contact-group-header">
+                <div className="group-title-wrap">
+                  <span className="group-title">{group.role}</span>
+                  <span className="group-count">{group.contacts.length} contact(s)</span>
+                </div>
+                <span className={`section-tag ${sectionTagClass[group.tag] || ''}`}>{group.tag}</span>
+              </header>
+              <div className="contact-list">
+                {group.contacts.map((c) => (
+                  <ContactCard key={c.name} contact={c} />
+                ))}
               </div>
-              <span className={`section-tag ${sectionTagClass[group.tag] || ''}`}>{group.tag}</span>
-            </div>
-            <div className="contact-list">
-              {group.contacts.map((c) => (
-                <ContactCard key={c.name} contact={c} />
-              ))}
             </div>
           </section>
         ))

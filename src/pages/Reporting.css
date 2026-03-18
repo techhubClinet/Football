@@ -6,6 +6,13 @@
   padding: 2rem;
 }
 
+@media (max-width: 640px) {
+  .reporting-page {
+    padding: 1rem;
+    min-height: 55vh;
+  }
+}
+
 .reporting-construction {
   text-align: center;
   width: 100%;
@@ -16,11 +23,23 @@
   border-radius: 12px;
 }
 
+@media (max-width: 640px) {
+  .reporting-construction {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
 .reporting-construction-icon {
   font-size: 3.5rem;
   margin-bottom: 1rem;
   opacity: 0.6;
   filter: grayscale(0.5);
+}
+
+@media (max-width: 640px) {
+  .reporting-construction-icon {
+    margin-bottom: 0.85rem;
+  }
 }
 
 .reporting-construction-title {

@@ -1,4 +1,4 @@
-import { Home, Target, Clock, TrendingUp, Check, DollarSign, Calendar, AlertTriangle } from '../components/Icons';
+import { Home, Target, Clock, TrendingUp, Check, DollarSign, Calendar, AlertCircle } from '../components/Icons';
 import './NeedsExchange.css';
 
 const stats = [
@@ -38,25 +38,27 @@ export default function NeedsExchange() {
       <div className="needs-list">
         {needs.map((n) => (
           <div key={n.club + n.role} className={`needs-card ${n.urgent ? 'needs-card--urgent' : n.urgencyLabel ? 'needs-card--moderate' : ''}`}>
-            {n.urgent && <span className="needs-card-urgent">Urgent</span>}
-            {n.urgencyLabel && !n.urgent && <span className="needs-card-moderate">{n.urgencyLabel}</span>}
             <div className="needs-card-header">
               {n.logo ? (
                 <img src={n.logo} alt="" className="needs-club-avatar" />
               ) : (
                 <div className="needs-club-avatar" />
               )}
-              <div>
+              <div className="needs-card-header-text">
                 <span className="needs-club-name">{n.club}</span>
                 <span className="needs-club-league">{n.league}</span>
               </div>
+              {n.urgent && <span className="needs-card-urgent">Urgent</span>}
+              {n.urgencyLabel && !n.urgent && <span className="needs-card-moderate">{n.urgencyLabel}</span>}
             </div>
             <div className="needs-role-block">
               <span className="needs-role-icon-wrap">
                 <Target size={16} strokeWidth={2} aria-hidden />
               </span>
-              <div>
+              <div className="needs-role-title-wrap">
                 <div className="needs-role-title">{n.role}</div>
+              </div>
+              <div className="needs-role-description-wrap">
                 <p className="needs-description">{n.description}</p>
               </div>
             </div>
@@ -70,7 +72,7 @@ export default function NeedsExchange() {
                 Ajouté le {n.added}
               </span>
               <span className="needs-detail-item needs-deadline">
-                <AlertTriangle size={16} strokeWidth={2} aria-hidden />
+                <AlertCircle size={16} strokeWidth={2} aria-hidden />
                 Deadline: {n.deadline}
               </span>
             </div>

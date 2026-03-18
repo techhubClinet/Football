@@ -2,21 +2,35 @@
   --text: #e5e7eb;
   --text-muted: #9ca3af;
   --text-h: #f9fafb;
-  --bg-page: #0f0f12;
-  --bg-sidebar: #16171d;
-  --bg-header: #16171d;
-  --bg-card: #1c1d24;
-  --bg-input: #1c1d24;
+  --bg-page: #0a0a0a;
+  --bg-sidebar: #111113;
+  --bg-header: #0a0a0a;
+  --bg-card: #171719;
+  --bg-input: #171719;
   --bg-hover: rgba(255, 255, 255, 0.05);
-  --bg-active: rgba(139, 92, 246, 0.15);
-  --border: #2e303a;
+  --bg-active: rgba(139, 92, 246, 0.2);
+  --border: #262628;
   --accent: #8b5cf6;
   --badge: #ef4444;
   --success: #22c55e;
   --warning: #f59e0b;
   --info: #3b82f6;
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  /* Horizontal padding for main content area (header + page content) */
+  --content-padding-x: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --content-padding-x: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --content-padding-x: 1rem;
+  }
 }
 
 * {

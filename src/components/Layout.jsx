@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Header from './Header';
@@ -8,12 +8,27 @@ import './Layout.css';
 
 export default function Layout() {
   const [actionRapideOpen, setActionRapideOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.classList.add('sidebar-open');
+    } else {
+      document.body.classList.remove('sidebar-open');
+    }
+    return () => document.body.classList.remove('sidebar-open');
+  }, [sidebarOpen]);
 
   return (
     <div className="app-layout">
-      <Sidebar />
+      <div
+        className="sidebar-overlay"
+        aria-hidden={!sidebarOpen}
+        onClick={() => setSidebarOpen(false)}
+      />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="app-main">
-        <Header />
+        <Header onMenuClick={() => setSidebarOpen(true)} />
         <main className="app-content">
           <Outlet />
         </main>

@@ -7,12 +7,14 @@ import {
   MapPin,
   Network,
   DollarSign,
+  Euro,
   Clock,
   Eye,
   EyeOff,
   Settings,
   MessageCircle,
   BarChart3,
+  ChartColumnIncreasing,
   ShoppingCart,
   Search,
   Bell,
@@ -46,6 +48,10 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowLeftRight,
+  Plus,
+  Filter,
+  Info,
+  Menu,
 } from 'lucide-react';
 
 const iconSize = 18;
@@ -73,7 +79,7 @@ export const NavIcons = {
   profileViews: Eye,
   settings: Settings,
   messagerie: MessageCircle,
-  reporting: BarChart3,
+  reporting: ChartColumnIncreasing,
   marketplace: ShoppingCart,
 };
 
@@ -123,6 +129,7 @@ export {
   Network,
   MessageCircle,
   BarChart3,
+  ChartColumnIncreasing,
   ShoppingCart,
   HelpCircle,
   Share2,
@@ -131,6 +138,11 @@ export {
   ChevronLeft,
   ChevronRight,
   ArrowLeftRight,
+  Plus,
+  Euro,
+  Filter,
+  Info,
+  Menu,
 };
 
 export const iconSizeDefault = iconSize;

@@ -28,7 +28,7 @@ const profileViewers = [
 
 export default function Dashboard() {
   return (
-    <div className="dashboard">
+    <div id="kl" className="dashboard">
       <div className="stats-row">
         {stats.map((s) => {
           const Icon = s.icon;
@@ -36,7 +36,7 @@ export default function Dashboard() {
             <div key={s.label} className="stat-card">
               <div className="stat-card-top">
                 <span className={`stat-card-icon stat-card-icon-${s.iconColor}`}>
-                  <Icon size={20} strokeWidth={2} aria-hidden />
+                  <Icon size={25} strokeWidth={2} aria-hidden />
                 </span>
                 <span className="stat-change">{s.change}</span>
               </div>
@@ -109,15 +109,21 @@ export default function Dashboard() {
           <Link to="/vues-profil" className="profile-views-link">Voir tout →</Link>
         </div>
         <div className="profile-views-stats">
-          <div className="profile-views-stat-box">
-            <Eye size={14} strokeWidth={2} aria-hidden />
-            <span>Cette semaine</span>
-            <div className="profile-views-dots profile-views-dots-blur" aria-hidden />
+          <div className="profile-views-stat-box profile-views-stat-box-week">
+            <div className="profile-views-stat-top">
+              <Eye size={16} strokeWidth={2} className="profile-views-stat-icon-week" aria-hidden />
+              <span>Cette semaine</span>
+            </div>
+            <div className="profile-views-dots profile-views-dots-white">
+              <span className="profile-views-dot" /><span className="profile-views-dot" /><span className="profile-views-dot" />
+            </div>
           </div>
-          <div className="profile-views-stat-box">
-            <TrendingUp size={14} strokeWidth={2} className="profile-views-evolution-icon" aria-hidden />
-            <span>Évolution</span>
-            <div className="profile-views-dots profile-views-dots-green">
+          <div className="profile-views-stat-box profile-views-stat-box-evolution">
+            <div className="profile-views-stat-top">
+              <TrendingUp size={16} strokeWidth={2} className="profile-views-stat-icon-evolution" aria-hidden />
+              <span>Évolution</span>
+            </div>
+            <div className="profile-views-dots profile-views-dots-green profile-views-dots-end">
               <span className="profile-views-dot" /><span className="profile-views-dot" /><span className="profile-views-dot" />
             </div>
           </div>
@@ -131,8 +137,12 @@ export default function Dashboard() {
           ))}
         </div>
         <div className="profile-views-cta">
-          <p className="profile-views-cta-text">Découvrez qui visite votre profil</p>
-          <Link to="/vues-profil" className="profile-views-premium-btn">Passer à Premium</Link>
+          <div className="profile-views-cta-inner">
+            <p className="profile-views-cta-text">Découvrez qui visite votre profil</p>
+            <div className="profile-views-cta-buttons">
+              <Link to="/vues-profil" className="profile-views-premium-btn">Passer à Premium</Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>

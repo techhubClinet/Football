@@ -9,7 +9,8 @@ const mediaTabs = [
   { id: 'Document', icon: FileText },
 ];
 
-const composerAvatar = 'https://randomuser.me/api/portraits/men/32.jpg';
+const composerAvatar = null;
+const composerInitials = 'JD';
 
 const posts = [
   { author: 'Real Madrid CF', badge: 'Club Professionnel', verified: true, linkIcon: true, time: 'Il y a 2h', content: 'Recherche active : Milieu défensif (U21) - Profil international recherché pour notre centre de formation. Budget : 2-3M€. Contactez-nous avec vos dossiers.', hashtags: ['#Recrutement', '#U21', '#Milieu'], likes: 342, comments: 87, shares: 45, ctaLabel: 'Proposer un dossier', avatar: 'https://picsum.photos/seed/realmadrid/100/100' },
@@ -37,9 +38,17 @@ export default function Network() {
       <div className="network-layout">
         <div className="network-feed">
           <div className="network-composer">
-            <img src={composerAvatar} alt="" className="network-composer-avatar" />
+            {composerAvatar ? (
+              <img src={composerAvatar} alt="" className="network-composer-avatar" />
+            ) : (
+              <div className="network-composer-avatar network-composer-avatar-initials" aria-hidden>
+                {composerInitials}
+              </div>
+            )}
             <div className="network-composer-body">
-              <textarea className="network-composer-input" placeholder="Partager une actualité, une opportunité..." rows={3} />
+              <div className="network-composer-inputWrap">
+                <textarea className="network-composer-input" placeholder="Partager une actualité, une opportunité..." rows={2} />
+              </div>
               <div className="network-composer-actions">
                 {mediaTabs.map((t) => {
                   const Icon = t.icon;
@@ -124,24 +133,27 @@ export default function Network() {
               Demandes de connexion
             </h3>
             <p className="network-sidebar-subtitle">{connectionRequestsCount} nouvelles demandes</p>
+            <div className="network-sidebar-divider" />
             {connectionRequests.map((r) => (
               <div key={r.name} className="network-request-card">
-                {r.avatar ? <img src={r.avatar} alt="" className="network-request-avatar" /> : <div className="network-request-avatar" />}
-                <div className="network-request-info">
-                  <span className="network-request-name">
-                    {r.name}
-                    {r.verified && <span className="network-request-verified"><Check size={12} strokeWidth={2.5} aria-hidden /></span>}
-                    {r.clubIcon && <span className="network-request-badge"><Building2 size={12} strokeWidth={2} aria-hidden /></span>}
-                    {r.fifaTag && <span className="network-request-fifa-tag">FIFA</span>}
-                  </span>
-                  <span className="network-request-role">{r.role}</span>
-                  <span className="network-request-meta">
-                    <MapPin size={12} strokeWidth={2} aria-hidden /> {r.location}
-                  </span>
-                  <span className="network-request-common">
-                    <Users size={12} strokeWidth={2} aria-hidden /> {r.common} relations en commun
-                  </span>
+                <div className="network-request-top">
+                  {r.avatar ? <img src={r.avatar} alt="" className="network-request-avatar" /> : <div className="network-request-avatar" />}
+                  <div className="network-request-heading">
+                    <span className="network-request-name">
+                      {r.name}
+                      {r.verified && <span className="network-request-verified"><Check size={12} strokeWidth={2.5} aria-hidden /></span>}
+                      {r.clubIcon && <span className="network-request-badge"><Building2 size={12} strokeWidth={2} aria-hidden /></span>}
+                      {r.fifaTag && <span className="network-request-fifa-tag">FIFA</span>}
+                    </span>
+                    <span className="network-request-role">{r.role}</span>
+                  </div>
                 </div>
+                <span className="network-request-meta">
+                  <MapPin size={14} strokeWidth={2} aria-hidden /> {r.location}
+                </span>
+                <span className="network-request-common">
+                  <Users size={14} strokeWidth={2} aria-hidden /> {r.common} relations en commun
+                </span>
                 <div className="network-request-actions">
                   <button type="button" className="btn-accept">Accepter</button>
                   <button type="button" className="btn-ignore">Ignorer</button>

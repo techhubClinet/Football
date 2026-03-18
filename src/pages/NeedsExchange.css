@@ -1,5 +1,16 @@
 .needs-exchange-page {
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem;
+  background: var(--bg-page);
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .needs-exchange-page {
+    padding: 0.85rem 1rem 2rem;
+  }
 }
 
 .needs-header {
@@ -10,15 +21,16 @@
   margin: 0 0 0.35rem;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text);
+  color: #fff;
 }
 
 .needs-subtitle {
   margin: 0;
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: #9c9c9c;
 }
 
+/* —— Stats cards (same pattern as Scouting/PlayerPortfolio) —— */
 .needs-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -32,47 +44,78 @@
   }
 }
 
+@media (max-width: 420px) {
+  .needs-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
 .needs-stat-card {
-  background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-}
-
-.needs-stat-green {
-  border: 1px solid rgba(34, 197, 94, 0.5);
-  background: rgba(34, 197, 94, 0.12);
-}
-
-.needs-stat-red {
-  border: 1px solid rgba(239, 68, 68, 0.5);
-  background: rgba(239, 68, 68, 0.12);
-}
-
-.needs-stat-purple {
-  border: 1px solid rgba(139, 92, 246, 0.5);
-  background: rgba(139, 92, 246, 0.12);
+  gap: 0.35rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .needs-stat-icon {
-  font-size: 1rem;
+  display: inline-flex;
+  color: #9ca3af;
   opacity: 0.9;
 }
 
 .needs-stat-label {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
 .needs-stat-value {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text);
+  color: #fff;
+  padding-left: 0.25rem;
 }
 
+/* Green: Matches détectés */
+.needs-stat-green {
+  background: #0d2818;
+  border: 1px solid #007600;
+}
+
+.needs-stat-green .needs-stat-icon,
+.needs-stat-green .needs-stat-label,
+.needs-stat-green .needs-stat-value {
+  color: #22c55e;
+}
+
+/* Red: Urgents */
+.needs-stat-red {
+  background: #2d1818;
+  border: 1px solid #b91c1c;
+}
+
+.needs-stat-red .needs-stat-icon,
+.needs-stat-red .needs-stat-label,
+.needs-stat-red .needs-stat-value {
+  color: #ef4444;
+}
+
+/* Purple: Taux de match */
+.needs-stat-purple {
+  background: #1e1a2e;
+  border: 1px solid #7c3aed;
+}
+
+.needs-stat-purple .needs-stat-icon,
+.needs-stat-purple .needs-stat-label,
+.needs-stat-purple .needs-stat-value {
+  color: #a78bfa;
+}
+
+/* —— Need cards list: each card is standalone with reddish-brown border —— */
 .needs-list {
   display: flex;
   flex-direction: column;
@@ -80,100 +123,121 @@
 }
 
 .needs-card {
-  background: #1e1e1e;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #1a1a1a;
+  border: 1px solid #ff4433;
   border-radius: 10px;
-  padding: 1.5rem 1.75rem;
+  padding: 1.25rem 1.5rem;
   position: relative;
+  box-sizing: border-box;
 }
 
-.needs-card.needs-card--urgent {
-  border-color: rgba(239, 68, 68, 0.6);
+.needs-card:last-child {
+  border: none;
 }
 
-.needs-card.needs-card--moderate {
-  border-color: rgba(234, 179, 8, 0.6);
+.needs-card-urgent,
+.needs-card-moderate {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 700;
+  margin-left: auto;
+  flex-shrink: 0;
+  border: 1px solid;
 }
 
 .needs-card-urgent {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.7rem;
-  padding: 0.25rem 0.5rem;
-  background: #ef4444;
+  background: #2a2524;
   color: #fff;
-  border: 1px solid rgba(185, 28, 28, 0.8);
-  border-radius: 6px;
-  font-weight: 600;
+  border-color: #ff4433;
 }
 
 .needs-card-moderate {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.7rem;
-  padding: 0.25rem 0.5rem;
-  background: #eab308;
-  color: #000;
-  border: 1px solid rgba(202, 138, 4, 0.8);
-  border-radius: 6px;
-  font-weight: 600;
+  background: #2d2318;
+  color: #d4a84b;
+  border-color: #d4a84b;
 }
 
+/* Top section: club logo + name + league; tag right-aligned and vertically centered */
 .needs-card-header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(249, 115, 22, 0.4);
+  margin-bottom: 1rem;
+}
+
+.needs-card-header-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .needs-club-avatar {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   border-radius: 8px;
-  background: var(--border);
+  background: #262626;
   flex-shrink: 0;
   object-fit: cover;
   display: block;
 }
 
 .needs-club-name {
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 1.1em;
   color: #fff;
   display: block;
-  font-size: 1rem;
+  line-height: 1.3;
 }
 
 .needs-club-league {
-  font-size: 0.85rem;
-  color: #9ca3af;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #fff;
+  display: block;
+  opacity: 0.9;
+  margin-top: 0.15rem;
 }
 
-/* Role + description: purple icon, bold title, regular white description — text written inside card with spacing */
+/* Middle section: icon + heading on first row; description on second row starting from icon */
 .needs-role-block {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0 0.75rem;
+  row-gap: 0.5rem;
   margin-bottom: 1rem;
+  margin-left: 68px; /* 56px avatar + 12px gap: aligns with club name column */
+  background: #0a0a0a;
+  border-bottom: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  box-sizing: border-box;
 }
 
 .needs-role-icon-wrap {
-  width: 36px;
-  height: 36px;
+  grid-column: 1;
+  grid-row: 1;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
+  background: transparent;
+  color: #9966cc;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  margin-top: 2px; /* align with cap height of heading */
 }
 
-.needs-role-block > div {
-  flex: 1;
+.needs-role-icon-wrap svg {
+  width: 17px;
+  height: 17px;
+}
+
+.needs-role-title-wrap {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
   min-width: 0;
 }
 
@@ -181,79 +245,109 @@
   font-size: 1rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 0.4rem;
-  line-height: 1.3;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.needs-role-description-wrap {
+  grid-column: 1 / -1; /* span full width so text starts from under the icon */
+  grid-row: 2;
+  min-width: 0;
 }
 
 .needs-description {
-  font-size: 0.9rem;
-  color: #fff;
+  font-size: 0.875rem;
+  color: #9ca3af;
   margin: 0;
   line-height: 1.5;
   font-weight: 400;
-  opacity: 0.95;
 }
 
-/* Details row: icon + text, horizontal */
+/* Bottom section: aligned with text section — teal-green $, light gray date, muted red deadline */
 .needs-details {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.25rem;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
+  gap: 1.5rem;
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 0.85rem;
+  margin-left: 68px;
 }
 
 .needs-detail-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .needs-detail-item svg {
   flex-shrink: 0;
 }
 
+/* Financial: teal-green icon, light gray text */
 .needs-salary {
-  color: #4ade80;
+  color: #adadad;
 }
 
 .needs-salary svg {
-  color: #4ade80;
+  color: #00ff7f;
 }
 
+/* Date added: light gray */
 .needs-added {
-  color: #9ca3af;
+  color: #adadad;
 }
 
 .needs-added svg {
-  color: #9ca3af;
+  color: #adadad;
 }
 
+/* Deadline: muted red + warning icon */
 .needs-deadline {
-  color: #ef4444;
-  font-weight: 500;
+  color: #ff6464;
+  font-weight: 400;
 }
 
 .needs-deadline svg {
-  color: #ef4444;
+  color: #ff6464;
+  flex-shrink: 0;
 }
 
-/* Match chip: dark teal/green, light green border, white text */
+/* Match pill: transparent bg, teal-green border and text, very rounded */
 .needs-match-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: #fff;
-  background: rgba(20, 83, 45, 0.6);
-  border: 1px solid rgba(74, 222, 128, 0.5);
-  padding: 0.5rem 0.85rem;
-  border-radius: 10px;
+  gap: 0.35rem;
+  font-size: 11px;
+  font-weight: 500;
+  color: #00ff7f;
+  background: transparent;
+  border: 1px solid #00ff7f;
+  padding: 0.3rem 0.55rem;
+  border-radius: 9999px;
   width: fit-content;
+  margin-top: 0.35rem;
+  margin-left: 68px;
 }
 
 .needs-match-tag svg {
-  color: #4ade80;
+  color: #00ff7f;
   flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+}
+
+@media (max-width: 600px) {
+  .needs-role-block {
+    margin-left: 0;
+  }
+
+  .needs-details {
+    margin-left: 0;
+  }
+
+  .needs-match-tag {
+    margin-left: 0;
+  }
 }

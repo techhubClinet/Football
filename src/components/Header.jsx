@@ -1,8 +1,16 @@
-import { Search, Bell, ChevronDown } from './Icons';
+import { Search, Bell, ChevronDown, Menu } from './Icons';
 
-export default function Header() {
+export default function Header({ onMenuClick }) {
   return (
     <header className="header">
+      <button
+        type="button"
+        className="header-menu-btn"
+        onClick={onMenuClick}
+        aria-label="Ouvrir le menu"
+      >
+        <Menu size={24} strokeWidth={2} aria-hidden />
+      </button>
       <div className="header-search">
         <span className="header-search-icon">
           <Search size={18} strokeWidth={2} aria-hidden />

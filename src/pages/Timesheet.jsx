@@ -51,9 +51,13 @@ export default function Timesheet() {
           const Icon = s.icon;
           return (
           <div key={s.label} className={`timesheet-stat-card ${s.highlight ? `timesheet-stat-${s.highlight}` : ''}`}>
-            <span className="timesheet-stat-icon">{Icon && <Icon size={18} strokeWidth={2} aria-hidden />}</span>
-            <span className="timesheet-stat-label">{s.label}</span>
-            <span className="timesheet-stat-value">{s.value}</span>
+            <div className="timesheet-stat-left">
+              <span className="timesheet-stat-label">{s.label}</span>
+              <span className="timesheet-stat-value">{s.value}</span>
+            </div>
+            <span className="timesheet-stat-iconBox" aria-hidden>
+              {Icon && <Icon size={18} strokeWidth={2} />}
+            </span>
           </div>
           );
         })}
@@ -89,39 +93,42 @@ export default function Timesheet() {
           <Clock size={18} strokeWidth={2} aria-hidden className="timesheet-journal-title-icon" />
           Journal d'Activités
         </h2>
-        <div className="timesheet-timeline">
-          {filteredActivities.map((a, i) => {
-            const ActivityIcon = a.icon;
-            return (
-            <div key={i} className={`timesheet-activity ${i === 0 ? 'timesheet-activity-first' : ''}`}>
-              <div className="timesheet-activity-line" />
-              <div className={`timesheet-activity-icon timesheet-activity-icon-${a.typeColor}`}>{ActivityIcon && <ActivityIcon size={20} strokeWidth={2} aria-hidden />}</div>
-              <div className="timesheet-activity-card">
-                <div className="timesheet-activity-header">
-                  <span className={`timesheet-activity-type timesheet-activity-type-${a.typeColor}`}>{a.type}</span>
-                  <span className={`timesheet-activity-status timesheet-status-${a.statusType}`}>{a.status === 'Terminé' ? <><Check size={12} strokeWidth={2.5} aria-hidden /> {a.status}</> : <><Clock size={12} strokeWidth={2} aria-hidden /> {a.status}</>}</span>
-                </div>
-                <p className="timesheet-activity-desc">{a.description}</p>
-                <div className="timesheet-activity-meta">
-                  <span><Calendar size={14} strokeWidth={2} aria-hidden className="timesheet-meta-icon" /> {a.date}</span>
-                  <span><Clock size={14} strokeWidth={2} aria-hidden className="timesheet-meta-icon" /> {a.time}</span>
-                  {a.duration !== '-' && <span>{a.duration}</span>}
-                </div>
-                {a.players.length > 0 && (
-                  <div className="timesheet-activity-players">
-                    <UsersRound size={14} strokeWidth={2} aria-hidden className="timesheet-players-icon" />
-                    Joueurs concernés: {a.players.join(', ')}
+        <div className="timesheet-journal-scroll">
+          <div className="timesheet-timeline">
+            {filteredActivities.map((a, i) => {
+              const ActivityIcon = a.icon;
+              return (
+              <div key={i} className="timesheet-activity">
+                <div className="timesheet-activity-line" />
+                <div className={`timesheet-activity-icon timesheet-activity-icon-${a.typeColor}`}>{ActivityIcon && <ActivityIcon size={20} strokeWidth={2} aria-hidden />}</div>
+                <div className="timesheet-activity-card">
+                  <div className="timesheet-activity-header">
+                    <div className="timesheet-activity-badges">
+                      <span className={`timesheet-activity-type timesheet-activity-type-${a.typeColor}`}>{a.type}</span>
+                      <span className={`timesheet-activity-status timesheet-status-${a.statusType}`}>{a.status === 'Terminé' ? <><Check size={12} strokeWidth={2.5} aria-hidden /> {a.status}</> : <><Clock size={12} strokeWidth={2} aria-hidden /> {a.status}</>}</span>
+                    </div>
+                    <button type="button" className="timesheet-activity-delete" aria-label="Supprimer"><Trash2 size={16} strokeWidth={2} aria-hidden /></button>
                   </div>
-                )}
-                <button type="button" className="timesheet-activity-delete" aria-label="Supprimer"><Trash2 size={18} strokeWidth={2} aria-hidden /></button>
+                  <p className="timesheet-activity-desc">{a.description}</p>
+                  <div className="timesheet-activity-meta">
+                    <span><Calendar size={14} strokeWidth={2} aria-hidden className="timesheet-meta-icon" /> {a.date}</span>
+                    <span><Clock size={14} strokeWidth={2} aria-hidden className="timesheet-meta-icon" /> {a.time}</span>
+                    {a.duration !== '-' && <span className="timesheet-activity-duration">{a.duration}</span>}
+                  </div>
+                  {a.players.length > 0 && (
+                    <div className="timesheet-activity-players">
+                      <UsersRound size={14} strokeWidth={2} aria-hidden className="timesheet-players-icon" />
+                      <span className="timesheet-players-label">Joueurs concernés:</span>
+                      <span className="timesheet-players-names">{a.players.join(', ')}</span>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
-
-      <a href="#new" className="timesheet-fab" aria-label="Nouvelle action">+</a>
     </div>
   );
 }

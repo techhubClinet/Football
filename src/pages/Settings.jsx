@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import { Settings as SettingsIcon, EyeOff, Lock, Download, Crown } from '../components/Icons';
+import { Settings as SettingsIcon, EyeOff, Lock, Download, Crown, Contact, Bell } from '../components/Icons';
+import { Palette } from 'lucide-react';
 import './Settings.css';
 
-const tabs = ['Profil', 'Confidentialité', 'Notifications', 'Apparence'];
+const tabs = [
+  { id: 'Profil', label: 'Profil', icon: Contact },
+  { id: 'Confidentialité', label: 'Confidentialité', icon: Lock },
+  { id: 'Notifications', label: 'Notifications', icon: Bell },
+  { id: 'Apparence', label: 'Apparence', icon: Palette },
+];
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState('Confidentialité');
@@ -13,25 +19,33 @@ export default function Settings() {
   return (
     <div className="settings-page">
       <header className="settings-header">
-        <h1 className="settings-title">
-          <span className="settings-title-icon"><SettingsIcon size={24} strokeWidth={2} aria-hidden /></span>
-          Paramètres
-        </h1>
-        <p className="settings-subtitle">Gérez votre compte et vos préférences</p>
+        <div className="settings-header-left">
+          <h1 className="settings-title">
+            <span className="settings-title-icon"><SettingsIcon size={24} strokeWidth={2} aria-hidden /></span>
+            Paramètres
+          </h1>
+          <p className="settings-subtitle">Gérez votre compte et vos préférences</p>
+        </div>
+        <button type="button" className="settings-premium-btn">
+          <Crown size={18} strokeWidth={2} aria-hidden className="settings-premium-crown" /> Passer à Premium
+        </button>
       </header>
 
-      <div className="settings-tabs">
-        {tabs.map((t) => (
-          <button
-            key={t}
-            type="button"
-            className={`settings-tab ${activeTab === t ? 'active' : ''}`}
-            onClick={() => setActiveTab(t)}
-          >
-            {t}
-          </button>
-        ))}
-      </div>
+      <nav className="settings-tabs-wrap" aria-label="Onglets paramètres">
+        <div className="settings-tabs">
+          {tabs.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              type="button"
+              className={`settings-tab ${activeTab === id ? 'active' : ''}`}
+              onClick={() => setActiveTab(id)}
+            >
+              <Icon size={18} strokeWidth={2} aria-hidden className="settings-tab-icon" />
+              {label}
+            </button>
+          ))}
+        </div>
+      </nav>
 
       {activeTab === 'Confidentialité' && (
         <>
@@ -61,7 +75,7 @@ export default function Settings() {
             <button type="button" className="settings-btn-unlock"><Crown size={18} strokeWidth={2} aria-hidden /> Débloquer le Mode Invisible</button>
           </section>
 
-          <section className="settings-card">
+          <section className="settings-card settings-card-visibility">
             <h2 className="settings-card-title">Visibilité du Profil</h2>
             <p className="settings-card-desc">Contrôlez qui peut voir votre profil et vos informations</p>
             <div className="settings-toggle-row">
@@ -98,7 +112,7 @@ export default function Settings() {
         </>
       )}
 
-      <section className="settings-card">
+      <section className="settings-card settings-card-security">
         <h2 className="settings-card-title">Données & Sécurité</h2>
         <p className="settings-card-desc">Gérez vos données personnelles et la sécurité de votre compte</p>
         <div className="settings-actions-list">

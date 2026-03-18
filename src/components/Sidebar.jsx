@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Gem, NavIcon } from './Icons';
+import { Gem, NavIcon, X } from './Icons';
 
 const navItems = [
   { path: '/', label: 'Dashboard', icon: 'dashboard' },
@@ -18,19 +18,28 @@ const navItems = [
   { path: '/marketplace', label: 'Marketplace', icon: 'marketplace' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
+      <button
+        type="button"
+        className="sidebar-close-btn"
+        onClick={onClose}
+        aria-label="Fermer le menu"
+      >
+        <X size={22} strokeWidth={2} aria-hidden />
+      </button>
       <div className="sidebar-brand">
-        <span className="sidebar-logo">
-          <Gem size={22} strokeWidth={2} aria-hidden />
-        </span>
-        <div>
+        <div className="sidebar-brand-row">
+          <span className="sidebar-logo">
+            <Gem size={36} strokeWidth={2} aria-hidden />
+          </span>
           <span className="sidebar-title">Pépite</span>
-          <span className="sidebar-subtitle">Football Ecosystem</span>
         </div>
+        <span className="sidebar-subtitle">Football Ecosystem</span>
       </div>
-      <nav className="sidebar-nav">
+      <div className="sidebar-divider" aria-hidden />
+      <nav className="sidebar-nav" onClick={onClose}>
         {navItems.map(({ path, label, icon, badge }) => (
           <NavLink
             key={path}
@@ -38,7 +47,7 @@ export default function Sidebar() {
             className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
           >
             <span className="sidebar-link-icon">
-              <NavIcon name={icon} />
+              <NavIcon name={icon} size={20} />
             </span>
             <span className="sidebar-link-label">{label}</span>
             {badge != null && (
@@ -47,6 +56,7 @@ export default function Sidebar() {
           </NavLink>
         ))}
       </nav>
+      <div className="sidebar-divider sidebar-divider-above-user" aria-hidden />
       <div className="sidebar-user">
         <div className="sidebar-avatar">JD</div>
         <div className="sidebar-user-info">

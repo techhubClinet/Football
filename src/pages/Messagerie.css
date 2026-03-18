@@ -6,6 +6,12 @@
   padding: 2rem;
 }
 
+@media (max-width: 640px) {
+  .messagerie-page {
+    padding: 1rem;
+  }
+}
+
 .messagerie-empty {
   text-align: center;
   width: 100%;

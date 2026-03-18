@@ -59,20 +59,18 @@ export default function ProfileViews() {
             </div>
           ))}
         </div>
-      </section>
 
-      <section className="profile-views-premium-card">
-        <Crown size={40} strokeWidth={2} aria-hidden className="profile-views-premium-card-crown" />
-        <h3 className="profile-views-premium-card-title">Découvrez qui s'intéresse à vous</h3>
-        <p className="profile-views-premium-card-desc">
-          Passez à Pépite Premium pour voir les profils complets de vos visiteurs et développer votre réseau stratégiquement
-        </p>
-        <button type="button" className="profile-views-premium-card-btn">
-          <Crown size={18} strokeWidth={2} aria-hidden className="profile-views-premium-card-btn-crown" /> Passer à Premium maintenant
-        </button>
+        <div className="profile-views-premium-card">
+          <Crown size={40} strokeWidth={2} aria-hidden className="profile-views-premium-card-crown" />
+          <h3 className="profile-views-premium-card-title">Découvrez qui s'intéresse à vous</h3>
+          <p className="profile-views-premium-card-desc">
+            Passez à Pépite Premium pour voir les profils complets de vos visiteurs et développer votre réseau stratégiquement
+          </p>
+          <button type="button" className="profile-views-premium-card-btn">
+            <Crown size={18} strokeWidth={2} aria-hidden className="profile-views-premium-card-btn-crown" /> Passer à Premium maintenant
+          </button>
+        </div>
       </section>
-
-      <a href="#premium" className="profile-views-fab" aria-label="Nouvelle action">+</a>
     </div>
   );
 }
